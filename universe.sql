@@ -86,7 +86,8 @@ CREATE TABLE public.moon (
     dist_from_planet integer NOT NULL,
     has_life boolean,
     age_in_million integer,
-    diameter_in_k integer
+    diameter_in_k integer,
+    planet_id integer
 );
 
 
@@ -102,7 +103,8 @@ CREATE TABLE public.planet (
     planet_stars character varying(24) NOT NULL,
     dist_from_sun_km integer NOT NULL,
     has_life boolean,
-    diameter_in_km integer
+    diameter_in_km integer,
+    star_id integer
 );
 
 
@@ -117,7 +119,8 @@ CREATE TABLE public.star (
     name character varying(24) NOT NULL,
     diameter_in_km integer NOT NULL,
     temperature_in_k integer NOT NULL,
-    color character varying(10)
+    color character varying(10),
+    galaxy_id integer
 );
 
 
@@ -231,6 +234,30 @@ ALTER TABLE ONLY public.star
 
 ALTER TABLE ONLY public.star
     ADD CONSTRAINT star_pkey PRIMARY KEY (star_id);
+
+
+--
+-- Name: moon moon_planet_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon
+    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.moon(moon_id);
+
+
+--
+-- Name: planet planet_star_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_star_id_fkey FOREIGN KEY (star_id) REFERENCES public.star(star_id);
+
+
+--
+-- Name: star star_galaxy_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_galaxy_id_fkey FOREIGN KEY (galaxy_id) REFERENCES public.galaxy(galaxy_id);
 
 
 --
