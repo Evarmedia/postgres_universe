@@ -49,7 +49,10 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.elements (
     element_id integer NOT NULL,
-    name character varying(24) NOT NULL
+    name character varying(24) NOT NULL,
+    found_on_earth boolean NOT NULL,
+    atomic_number integer,
+    element_state character varying(10)
 );
 
 
@@ -61,7 +64,13 @@ ALTER TABLE public.elements OWNER TO freecodecamp;
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(24) NOT NULL
+    name character varying(24) NOT NULL,
+    dist_from_earth_in_ly numeric NOT NULL,
+    diameter_in_ly integer NOT NULL,
+    discription text,
+    age_in_billion_years integer,
+    galaxy_type character varying(10),
+    has_life boolean
 );
 
 
@@ -73,7 +82,11 @@ ALTER TABLE public.galaxy OWNER TO freecodecamp;
 
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
-    name character varying(24) NOT NULL
+    name character varying(24) NOT NULL,
+    dist_from_planet integer NOT NULL,
+    has_life boolean,
+    age_in_million integer,
+    diameter_in_k integer
 );
 
 
@@ -85,7 +98,11 @@ ALTER TABLE public.moon OWNER TO freecodecamp;
 
 CREATE TABLE public.planet (
     planet_id integer NOT NULL,
-    name character varying(24) NOT NULL
+    name character varying(24) NOT NULL,
+    planet_stars character varying(24) NOT NULL,
+    dist_from_sun_km integer NOT NULL,
+    has_life boolean,
+    diameter_in_km integer
 );
 
 
@@ -97,7 +114,10 @@ ALTER TABLE public.planet OWNER TO freecodecamp;
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
-    name character varying(24) NOT NULL
+    name character varying(24) NOT NULL,
+    diameter_in_km integer NOT NULL,
+    temperature_in_k integer NOT NULL,
+    color character varying(10)
 );
 
 
