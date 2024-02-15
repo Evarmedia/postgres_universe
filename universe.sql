@@ -48,45 +48,89 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.elements (
-    element_id integer NOT NULL,
     name character varying(24) NOT NULL,
     found_on_earth boolean NOT NULL,
     atomic_number integer,
-    element_state character varying(10)
+    element_state character varying(10),
+    elements_id integer NOT NULL
 );
 
 
 ALTER TABLE public.elements OWNER TO freecodecamp;
 
 --
+-- Name: elements_elements_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.elements_elements_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.elements_elements_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: elements_elements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.elements_elements_id_seq OWNED BY public.elements.elements_id;
+
+
+--
 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.galaxy (
-    galaxy_id integer NOT NULL,
     name character varying(24) NOT NULL,
     dist_from_earth_in_ly numeric NOT NULL,
     diameter_in_ly integer NOT NULL,
     discription text,
     age_in_billion_years integer,
     galaxy_type character varying(10),
-    has_life boolean
+    has_life boolean,
+    galaxy_id integer NOT NULL
 );
 
 
 ALTER TABLE public.galaxy OWNER TO freecodecamp;
 
 --
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.galaxy_galaxy_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.galaxy_galaxy_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
+
+
+--
 -- Name: moon; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.moon (
-    moon_id integer NOT NULL,
     name character varying(24) NOT NULL,
     dist_from_planet integer NOT NULL,
     has_life boolean,
     age_in_million integer,
     diameter_in_k integer,
+    moon_id integer NOT NULL,
     planet_id integer
 );
 
@@ -94,16 +138,38 @@ CREATE TABLE public.moon (
 ALTER TABLE public.moon OWNER TO freecodecamp;
 
 --
+-- Name: moon_moon_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.moon_moon_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.moon_moon_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: moon_moon_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.moon_moon_id_seq OWNED BY public.moon.moon_id;
+
+
+--
 -- Name: planet; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.planet (
-    planet_id integer NOT NULL,
     name character varying(24) NOT NULL,
     planet_stars character varying(24) NOT NULL,
     dist_from_sun_km integer NOT NULL,
     has_life boolean,
     diameter_in_km integer,
+    planet_id integer NOT NULL,
     star_id integer
 );
 
@@ -111,20 +177,99 @@ CREATE TABLE public.planet (
 ALTER TABLE public.planet OWNER TO freecodecamp;
 
 --
+-- Name: planet_planet_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.planet_planet_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.planet_planet_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: planet_planet_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
+
+
+--
 -- Name: star; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
 CREATE TABLE public.star (
-    star_id integer NOT NULL,
     name character varying(24) NOT NULL,
     diameter_in_km integer NOT NULL,
     temperature_in_k integer NOT NULL,
     color character varying(10),
+    star_id integer NOT NULL,
     galaxy_id integer
 );
 
 
 ALTER TABLE public.star OWNER TO freecodecamp;
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+--
+
+CREATE SEQUENCE public.star_star_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.star_star_id_seq OWNER TO freecodecamp;
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+--
+
+ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
+
+
+--
+-- Name: elements elements_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.elements ALTER COLUMN elements_id SET DEFAULT nextval('public.elements_elements_id_seq'::regclass);
+
+
+--
+-- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('public.galaxy_galaxy_id_seq'::regclass);
+
+
+--
+-- Name: moon moon_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.moon ALTER COLUMN moon_id SET DEFAULT nextval('public.moon_moon_id_seq'::regclass);
+
+
+--
+-- Name: planet planet_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet ALTER COLUMN planet_id SET DEFAULT nextval('public.planet_planet_id_seq'::regclass);
+
+
+--
+-- Name: star star_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.star_star_id_seq'::regclass);
+
 
 --
 -- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: freecodecamp
@@ -157,6 +302,41 @@ ALTER TABLE public.star OWNER TO freecodecamp;
 
 
 --
+-- Name: elements_elements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.elements_elements_id_seq', 1, false);
+
+
+--
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+
+
+--
+-- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
+
+
+--
+-- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, false);
+
+
+--
+-- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+--
+
+SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+
+
+--
 -- Name: elements elements_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -169,7 +349,7 @@ ALTER TABLE ONLY public.elements
 --
 
 ALTER TABLE ONLY public.elements
-    ADD CONSTRAINT elements_pkey PRIMARY KEY (element_id);
+    ADD CONSTRAINT elements_pkey PRIMARY KEY (elements_id);
 
 
 --
@@ -241,7 +421,7 @@ ALTER TABLE ONLY public.star
 --
 
 ALTER TABLE ONLY public.moon
-    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.moon(moon_id);
+    ADD CONSTRAINT moon_planet_id_fkey FOREIGN KEY (planet_id) REFERENCES public.planet(planet_id);
 
 
 --
