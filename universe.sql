@@ -305,12 +305,30 @@ INSERT INTO public.galaxy VALUES ('BlackHole Galaxy', 90990990, 99999999, 'land 
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES ('Earth', 'OurSun', 503393, true, 6400, 1, 1);
+INSERT INTO public.planet VALUES ('Mars', 'OurSun', 743393, false, 98800, 2, 1);
+INSERT INTO public.planet VALUES ('Saturn', 'OurSun', 596393, false, 436800, 3, 1);
+INSERT INTO public.planet VALUES ('Mars v2', 'Red Dwarf', 77663, true, 578600, 4, 2);
+INSERT INTO public.planet VALUES ('Earth v2', 'OldTree', 986663, true, 234600, 5, 5);
+INSERT INTO public.planet VALUES ('Comodor1', 'OldTree', 986663, true, 234600, 6, 5);
+INSERT INTO public.planet VALUES ('Comodor2', 'OOldTree', 986663, true, 234600, 7, 5);
+INSERT INTO public.planet VALUES ('Uranus', 'OurSun', 986663, false, 234600, 8, 1);
+INSERT INTO public.planet VALUES ('Mecury', 'OurSun', 986663, false, 234600, 9, 1);
+INSERT INTO public.planet VALUES ('Pluto', 'OurSun', 986663, false, 234600, 10, 1);
+INSERT INTO public.planet VALUES ('Astro', 'Unkown', 234633, false, 578500, 11, 4);
+INSERT INTO public.planet VALUES ('BlackKingdom', 'Unkown', 584556, true, 578500, 12, 6);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES ('OurSun', 89833833, 3811973, 'Yellow', 1, 1);
+INSERT INTO public.star VALUES ('Red Dwarf', 993833, 9973838, 'Red', 2, 1);
+INSERT INTO public.star VALUES ('White Giant', 254366, 234552, 'white', 3, 2);
+INSERT INTO public.star VALUES ('GarnetLod', 85432, 24632, NULL, 4, 3);
+INSERT INTO public.star VALUES ('WormHole star', 32, 8567932, 'Black', 5, 6);
+INSERT INTO public.star VALUES ('OldTree star', 45, 2662, 'Yellow', 6, 5);
 
 
 --
