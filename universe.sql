@@ -275,12 +275,24 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: elements; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.elements VALUES ('Oxygen', true, 16, 'Gas', 1);
+INSERT INTO public.elements VALUES ('Hydrogen', true, 4, 'Gas', 2);
+INSERT INTO public.elements VALUES ('Helium', true, 2, 'Gas', 3);
+INSERT INTO public.elements VALUES ('Dicanium', false, NULL, 'Solid', 4);
+INSERT INTO public.elements VALUES ('filscanium', false, NULL, 'liquid', 5);
+INSERT INTO public.elements VALUES ('Aluminuim', true, NULL, 'Solid', 6);
 
 
 --
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.galaxy VALUES ('Milky way', 0, 8933000, 'Our Home Galaxy', 9888288, 'Type 1', true, 1);
+INSERT INTO public.galaxy VALUES ('Andromeda', 67988.78, 78000, 'Our Home Galaxy', 50888288, 'Type 3', true, 2);
+INSERT INTO public.galaxy VALUES ('Sahara Galaxy', 444358.23, 334400, 'Our Desert Neiborh', 80888, 'Type 0', false, 3);
+INSERT INTO public.galaxy VALUES ('Sauron Galaxy', 7455558.345, 477883730, 'No data', NULL, 'Type 0', false, 4);
+INSERT INTO public.galaxy VALUES ('Alohara Galaxy', 98369, 8728922, 'oldest galaxy known to man', NULL, 'Type 4', true, 5);
+INSERT INTO public.galaxy VALUES ('BlackHole Galaxy', 90990990, 99999999, 'land of black-holes', NULL, 'NULL', false, 6);
 
 
 --
