@@ -299,6 +299,26 @@ INSERT INTO public.galaxy VALUES ('BlackHole Galaxy', 90990990, 99999999, 'land 
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.moon VALUES ('EarthMoon', 23, false, 234, 3400, 1, 1);
+INSERT INTO public.moon VALUES ('EarthMoon2', 33, true, 223, 3800, 2, 1);
+INSERT INTO public.moon VALUES ('EarthMoon3', 44, false, 23, 6600, 3, 1);
+INSERT INTO public.moon VALUES ('MarsRover1', 654, false, 213, 600, 4, 2);
+INSERT INTO public.moon VALUES ('MarsRover2', 171, true, 13, 800, 5, 2);
+INSERT INTO public.moon VALUES ('MarsRover3', 171, false, 129, 4320, 6, 2);
+INSERT INTO public.moon VALUES ('Dova-de-saturn', 111, false, 122, 4290, 7, 3);
+INSERT INTO public.moon VALUES ('Dova-de-saturn2', 222, false, 982, 8690, 8, 3);
+INSERT INTO public.moon VALUES ('Dova-de-saturn3', 222, false, 982, 8690, 9, 3);
+INSERT INTO public.moon VALUES ('Dova-de-Marz', 444, false, 33, 7350, 10, 4);
+INSERT INTO public.moon VALUES ('Dova-de-Marz2', 444, false, 33, 7350, 11, 4);
+INSERT INTO public.moon VALUES ('Dova-de-Earth', 56, false, 467, 6780, 12, 5);
+INSERT INTO public.moon VALUES ('Dova-de-Earth2', 56, false, 467, 6780, 13, 5);
+INSERT INTO public.moon VALUES ('Com-rover', 141, true, 227, 4670, 14, 6);
+INSERT INTO public.moon VALUES ('Com-rover2', 141, true, NULL, NULL, 15, 6);
+INSERT INTO public.moon VALUES ('Com-de-rover', 561, true, 244, NULL, 16, 7);
+INSERT INTO public.moon VALUES ('Com-de-rover2', 561, false, 244, NULL, 17, 7);
+INSERT INTO public.moon VALUES ('zero-moon', 12, false, 24, NULL, 18, 8);
+INSERT INTO public.moon VALUES ('flying-moon', 12, true, NULL, 57, 19, 9);
+INSERT INTO public.moon VALUES ('black-moon', 345, false, NULL, 57, 20, 12);
 
 
 --
