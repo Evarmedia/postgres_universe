@@ -131,8 +131,8 @@ CREATE TABLE public.students (
     student_id integer NOT NULL,
     first_name character varying(50) NOT NULL,
     last_name character varying(50) NOT NULL,
-    major_id integer NOT NULL,
-    gpa numeric(2,1) NOT NULL
+    major_id integer,
+    gpa numeric(2,1)
 );
 
 
@@ -185,49 +185,59 @@ ALTER TABLE ONLY public.students ALTER COLUMN student_id SET DEFAULT nextval('pu
 -- Data for Name: courses; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.courses VALUES (1, 'Data Structures and Algorithms');
+INSERT INTO public.courses VALUES (23, 'Data Structures and Algorithms');
+INSERT INTO public.courses VALUES (24, 'Web Programming');
+INSERT INTO public.courses VALUES (25, 'Database Systems');
 
 
 --
 -- Data for Name: majors; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.majors VALUES (1, 'Database Administration');
+INSERT INTO public.majors VALUES (36, 'Database Administration');
+INSERT INTO public.majors VALUES (37, 'Web Development');
+INSERT INTO public.majors VALUES (38, 'Data Science');
 
 
 --
 -- Data for Name: majors_courses; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.majors_courses VALUES (1, 1);
+INSERT INTO public.majors_courses VALUES (36, 23);
+INSERT INTO public.majors_courses VALUES (37, 24);
+INSERT INTO public.majors_courses VALUES (36, 25);
+INSERT INTO public.majors_courses VALUES (38, 23);
 
 
 --
 -- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.students VALUES (1, 'Rhea', 'Kellems', 1, 2.5);
+INSERT INTO public.students VALUES (6, 'Rhea', 'Kellems', 36, 2.5);
+INSERT INTO public.students VALUES (7, 'Emma', 'Gilbert', NULL, NULL);
+INSERT INTO public.students VALUES (8, 'Kimberly', 'Whitley', 37, 3.8);
+INSERT INTO public.students VALUES (9, 'Jimmy', 'Felipe', 36, 3.7);
 
 
 --
 -- Name: courses_course_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.courses_course_id_seq', 1, true);
+SELECT pg_catalog.setval('public.courses_course_id_seq', 25, true);
 
 
 --
 -- Name: majors_major_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.majors_major_id_seq', 1, true);
+SELECT pg_catalog.setval('public.majors_major_id_seq', 38, true);
 
 
 --
 -- Name: students_student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.students_student_id_seq', 1, true);
+SELECT pg_catalog.setval('public.students_student_id_seq', 9, true);
 
 
 --
